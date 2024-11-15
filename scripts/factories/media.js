@@ -6,8 +6,8 @@ export function getUserImage(path,medium) {
 
     const card = template.content.cloneNode(true);
     const img = card.querySelector(".medium-card_img");
-    img.src = `${path}/${image}`;
-    img.alt = `${title}.` + ` ${alt}`;
+    img.src = `./${path}/${image}`;
+    img.alt = `./${title}.` + ` ${alt}`;
     
     card.querySelector(".medium-card_title").textContent = `${title}`;
     card.querySelector(".medium-card_likes").textContent = `${likes}`;
@@ -23,7 +23,7 @@ export function getUserVideo(path,medium) {
     
     const card = template.content.cloneNode(true);
     const video = card.querySelector(".medium-card_video");
-    video.src = `${path}/${medium.video}`;
+    video.src = `./${path}/${medium.video}`;
     video.setAttribute("aria-label", `${alt}`);
     
     card.querySelector(".medium-card_title").textContent = `${title}`;
