@@ -26,7 +26,7 @@ async function displayData(photographer, pMedia) {
     
     photographerModel.getUserCardProfile();
 
-    const path = "/assets/photographers/"+(photographer.name.split(" ")[0].replaceAll("-", " "));
+    const path = "./assets/photographers/"+(photographer.name.split(" ")[0].replaceAll("-", " "));
 
     pMedia.forEach((pMedium) => {
         const card = photographerModel.getUserMedium(photographer, pMedium)

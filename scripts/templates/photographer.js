@@ -3,7 +3,7 @@ import { getUserImage, getUserVideo } from "../factories/media.js"
 export function photographerTemplate(photographer) {
     const { name, portrait, city, country, tagline } = photographer;
 
-    const profile = `assets/photographers/${portrait}`;
+    const profile = `./assets/photographers/${portrait}`;
 
     // Header informations about the photographer
     function getUserCardProfile() {

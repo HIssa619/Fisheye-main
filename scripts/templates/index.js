@@ -1,7 +1,7 @@
 export function indexTemplate(photographer) {
     const { id, name, portrait, city, country, tagline, price } = photographer;
 
-    const profile = `assets/photographers/${portrait}`;
+    const profile = `./assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
         const divMain = document.createElement("div");
