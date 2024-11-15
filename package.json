@@ -1,0 +1,23 @@
+{
+  "name": "front-end-fisheye-main",
+  "version": "1.0.0",
+  "description": "Projet 6 openclassrooms, Phographers webpage",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HIssa619/Fisheye-main.git"
+  },
+  "author": "Aissa HENNI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HIssa619/Fisheye-main/issues"
+  },
+  "homepage": "https://github.com/HIssa619/Fisheye-main#readme",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
