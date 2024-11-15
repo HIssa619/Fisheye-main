@@ -92,11 +92,11 @@ function openLightboxMedia(index) {
     
         
     if (medium.video) {
-        video.src = lightboxPath + "/" + medium.video;
+        video.src = "./" + lightboxPath + "/" + medium.video;
         img.style.display = "none";
         video.style.display = "flex";
     } else {
-        img.src = lightboxPath + "/" + medium.image;
+        img.src = "./" + lightboxPath + "/" + medium.image;
         img.style.display = "flex";
         video.style.display = "none";
     }
