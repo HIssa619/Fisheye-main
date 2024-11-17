@@ -1,0 +1,28 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    height: 90px;
+
+    .logo {
+        height: 50px;
+    }
+    
+    h1 {
+        color: $primary-color;
+        font-size: 2.25rem;
+    }
+
+    @include media-phone {
+        .logo {
+            height: 30px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            text-align: end;
+        }
+    }
+}

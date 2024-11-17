@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de photographes Fisheye">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <link rel="stylesheet" href="./css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="./scripts/pages/photographer.js" type="module"></script>
+    <title>Fisheye - Photographes </title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+
+      <!-- Header -->
+      <header>
+        <a href="index.html">
+          <img src="./assets/images/logo.png" class="logo" alt="Logo de Fisheye, lien vers la page d'accueil"/>
+        </a>
+      </header>
+
+      <!-- Main -->
+      <main id="main" class="main_photographer">
+
+        <div class="photographer_header">
+          <button class="contact_button">Contactez-moi</button>
+        </div>
+
+        <div class="filter">
+          <!-- Label -->
+          <label tabindex="0" for="sort-cards" aria-label="Tri des media" id="filter">Trier par</label>
+
+          <!-- Select -->
+          <div id="sort-cards" class="filter_box " role="listbox" aria-activedescendant="actif" aria-labelledby="filter">
+
+            <!-- Collapse/expand button -->
+            <div tabindex="0" class="filter_icon" aria-haspopup="listbox" aria-hidden="true" aria-expanded="false">
+              <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+              <span class="sr-only">Options du filtre</span>
+            </div>
+
+            <!-- Selected item -->
+              <div
+                tabindex="0"
+                role="option"
+                class="filter_item"
+                id="actif"
+                aria-selected="true"
+              >
+                Popularité
+              </div>
+
+              <!-- Items -->
+              <div class="filter_dropdown">
+                <div
+                  tabindex="0"
+                  role="option"
+                  aria-labelledby="filter"
+                  class="first_filter filter_item"
+                >
+                  Date
+                </div>
+                <div
+                  tabindex="0"
+                  role="option"
+                  aria-labelledby="filter"
+                  class="last_filter filter_item"
+                >
+                  Titre
+                </div>
+              </div>
+
+          </div>
+        </div>
+
+        <div class="photographer_medias">        
+        </div>
+
+      </main>
+      
+      <!-- Template medium -->
+      <template id="template-medium-card-image">
+        <figure class="card">
+          <img tabindex="0" class="open_modal medium-card_img" src="">
+          <figcaption>
+            <h3 tabindex="0" class="medium-card_title"></h3>
+            <div class="like_counter"> 
+              <p tabindex="0" class="medium-card_likes"></p>
+              <i tabindex="0" class="fa-solid fa-heart like_icon" aria-label="Liker le média"></i>
+            </div>
+          </figcaption>
+        </figure>
+      </template>
+
+      <template id="template-medium-card-video">
+        <figure class="card">
+          <video tabindex="0" class="open_modal medium-card_video" controls>
+          </video>
+          <figcaption>
+            <h3 tabindex="0" class="medium-card_title"></h3>
+            <div class="like_counter">
+              <p tabindex="0" class="medium-card_likes"></p>
+              <i tabindex="0" class="fa-solid fa-heart like_icon" aria-label="Liker le média"></i>
+            </div>
+          </figcaption>
+        </figure>
+      </template>
+
+    </div>
+
+    <!-- Boite des like -->
+    <div tabindex="0" class="total-likes">
+      <div>
+        <span tabindex="0" class="like-count">0</span>
+        <i tabindex="0" class="fa-solid fa-heart like_icon" aria-label="Total des médias likés"></i>
+      </div>
+      <p tabindex="0" class="price-box"></p>
+    </div>
+
+    <!-- form -->
+    <div class="contact_modal">
+      <div class="modal" role="dialog" aria-labelledby="modalTitle">
+        <div class="header_form">
+          <h2 id="modalTitle">Contactez-moi</h2>
+          <button type="button" class="close_button" aria-label="Fermer le formulaire">
+            <i class="fa-solid fa-xmark close_contact_button"></i>
+            <span class="sr-only">Fermer l'apperçu du média</span>
+          </button>
+        </div>
+        <form
+          method="get"
+          onsubmit="validate();"
+        >
+
+          <div class="formData">
+            <label for="first">Prénom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="first"
+              name="first"
+              value=""
+              aria-required=true
+            />
+          </div>
+          <div class="formData">
+            <label for="last">Nom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="last"
+              name="last"
+              value=""
+              aria-required=true
+            />
+          </div>
+          <div class="formData">
+            <label for="email">E-mail</label>
+            <input
+              class="text-control"
+              type="email"
+              id="email"
+              name="email"
+              aria-required=true
+            />
+          </div>
+          <div class="formData">
+            <label for="user-message">Votre message</label>
+            <textarea
+              class="text-control"
+              type="email"
+              id="user-message"
+              name="user-message"
+              aria-required=true></textarea
+            >
+          </div>
+
+          <button class="contact_button submit_button" type="submit">Envoyer</button>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox_modal" aria-label="Apperçu plein écran du média">
+      <div class="modal" role="dialog" aria-labelledby="lightboxTitle">
+        <div class="modal-view">
+
+          <!-- Close button -->
+          <button tabindex="0" type="button" class="close_button" aria-label="Fermer l'apperçu du média">
+            <i tabindex="0" class="fa-solid fa-xmark close_media_button"></i>
+            <span class="sr-only">Fermer l'apperçu du média</span> 
+          </button>
+          
+          <!-- Navigation -->
+          <div class="nav">
+            <!-- Left -->
+            <div>
+              <i tabindex="0" class="fa-solid fa-chevron-left btn-prev btn-control"></i>
+              <span class="sr-only">Aller au media précédent</span>
+            </div>
+        
+            <!-- Right -->
+            <div>
+              <i tabindex="0" class="fa-solid fa-chevron-right btn-next btn-control"></i>
+              <span class="sr-only">Aller au media suivant</span>
+            </div>
+          </div>
+
+          <!-- Media -->
+          <figure class="figure_open-modal">
+            <div tabindex="0" class="media-card_content">
+              <img class="medium-card_img" src="" alt=""/>
+              <video class="medium-card_video" controls>
+              </video>
+            </div>
+            <figcaption>
+              <h3 tabindex="0" id="lightboxTitle" class="medium-card_title"></h3>
+            </figcaption>
+          </figure>
+
+
+        </div>
+      </div>
+    </div>
+  
+  </body>
+</html>
